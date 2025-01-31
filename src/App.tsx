@@ -18,6 +18,17 @@ function App() {
     setTodos([...todos, newTodo]);
   };
 
+  const toggleComplete = (id: number) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="container">
       <h1>Todo App Example</h1>
@@ -26,7 +37,7 @@ function App() {
       </Button>
       <TodoList
         todos={todos}
-        // toggleComplete={toggleComplete}
+        toggleComplete={toggleComplete}
         // deleteTodo={deleteTodo}
       />
     </div>
