@@ -29,6 +29,11 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const deleteTodo = (id: number) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="container">
       <h1>Todo App Example</h1>
@@ -38,7 +43,7 @@ function App() {
       <TodoList
         todos={todos}
         toggleComplete={toggleComplete}
-        // deleteTodo={deleteTodo}
+        deleteTodo={deleteTodo}
       />
     </div>
   );

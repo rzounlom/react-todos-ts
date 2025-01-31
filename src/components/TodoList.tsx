@@ -5,9 +5,14 @@ import { TodoItem } from "../types";
 type TodoListProps = {
   todos: TodoItem[];
   toggleComplete: (id: number) => void;
+  deleteTodo: (id: number) => void;
 };
 
-export default function TodoList({ todos, toggleComplete }: TodoListProps) {
+export default function TodoList({
+  todos,
+  toggleComplete,
+  deleteTodo,
+}: TodoListProps) {
   console.log({ todos });
 
   return (
@@ -17,7 +22,7 @@ export default function TodoList({ todos, toggleComplete }: TodoListProps) {
           <Todo
             todo={todo}
             toggleComplete={toggleComplete}
-            //   deleteTodo={deleteTodo}
+            deleteTodo={deleteTodo}
           />
         </ListGroup.Item>
       ))}
